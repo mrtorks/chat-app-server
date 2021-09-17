@@ -9,7 +9,10 @@ const router = require("./router");
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
-  cors: { origin: "http://localhost:3000", methods: ["GET", "POST"] },
+  cors: {
+    origin: "https://mrtorks.github.io/chat-app-client/",
+    methods: ["GET", "POST"],
+  },
 });
 
 app.use(router);
