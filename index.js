@@ -6,11 +6,16 @@ const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 const PORT = process.env.PORT || 5000;
 const router = require("./router");
 
+const envCheck =
+  !process.env.NODE_ENV || process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "https://mrtorks.github.io/chat-app-client/";
+
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
-    origin: "https://mrtorks.github.io/chat-app-client/",
+    origin: envCheck,
     methods: ["GET", "POST"],
   },
 });
