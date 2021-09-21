@@ -10,7 +10,6 @@
   "headers": [
     {
       "source": "/(.*)",
-      "dest": "/",
       "headers": [
         {
           "key": "access-control-allow-origin",
