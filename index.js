@@ -10,7 +10,7 @@ const router = require("./router");
 const envCheck =
   !process.env.NODE_ENV || process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
-    : "https://main.dijl7megnf8zd.amplifyapp.com/";
+    : "https://main.dijl7megnf8zd.amplifyapp.com";
 
 const app = express();
 const server = http.createServer(app);
@@ -21,7 +21,8 @@ const io = socketio(server, {
   },
 });
 
-app.use(cors(router));
+app.use(cors());
+app.use(router);
 
 io.on("connection", (socket) => {
   console.log("We have a new connection!!!");
