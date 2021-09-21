@@ -21,8 +21,7 @@ const io = socketio(server, {
   },
 });
 
-app.use(cors);
-app.use(router);
+app.use(cors(router));
 
 io.on("connection", (socket) => {
   console.log("We have a new connection!!!");
