@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("micro-cors");
 const socketio = require("socket.io");
 const http = require("http");
 
@@ -20,6 +21,7 @@ const io = socketio(server, {
   },
 });
 
+app.use(cors);
 app.use(router);
 
 io.on("connection", (socket) => {
