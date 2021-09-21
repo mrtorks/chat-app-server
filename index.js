@@ -9,7 +9,7 @@ const router = require("./router");
 const envCheck =
   !process.env.NODE_ENV || process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
-    : "https://mrtorks.github.io/chat-app-client/";
+    : "https://main.dijl7megnf8zd.amplifyapp.com/";
 
 const app = express();
 const server = http.createServer(app);
